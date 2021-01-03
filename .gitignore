@@ -2,3 +2,6 @@ pp5products.iml
 target
 .idea
 dbConfig.json
+
+node_modules
+build

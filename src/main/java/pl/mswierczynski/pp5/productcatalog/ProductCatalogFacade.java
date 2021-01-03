@@ -12,10 +12,13 @@ public class ProductCatalogFacade {
         this.productStorage = productStorage;
     }
 
-    public String createProduct() {
+    public Product createProduct(String description, String picture, BigDecimal price) {
         Product newProduct = new Product(UUID.randomUUID());
+        newProduct.setPicture(picture);
+        newProduct.setPrice(price);
+        newProduct.setDescription(description);
         productStorage.save(newProduct);
-        return newProduct.getId();
+        return newProduct;
     }
 
     public boolean isExists(String productId) {
@@ -26,21 +29,22 @@ public class ProductCatalogFacade {
         return getProductOrException(productId);
     }
 
-    public void updateProductDetails(String productId, String description, String picture) {
+    public void updateProductDetails(String productId, String description, String picture, BigDecimal price) {
         Product product = getProductOrException(productId);
 
         product.setDescription(description);
         product.setPicture(picture);
-    }
-
-    public void applyPrice(String productId, BigDecimal price) {
-        Product product = getProductOrException(productId);
-
         product.setPrice(price);
+
+        productStorage.update(product);
     }
 
     public List<Product> allPublishedProducts() {
         return productStorage.getAllPublished();
+    }
+
+    public void delete(String productId) {
+        productStorage.delete(productId);
     }
 
     private Product getProductOrException(String productId) {

@@ -3,35 +3,43 @@ package pl.mswierczynski.pp5.productcatalog;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class JDBCProductStorageTest {
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
+public class MariaDBProductStorageTest {
+    private final Connection connection = DBConnector.connect();
+    private final String tableName = "product_catalog_test";
     private ProductStorage productStorage;
 
     @Before
     public void setUp() {
-        this.productStorage = this.thereIsProductStorage(jdbcTemplate);
+        try {
+            var dropQuery = "DROP TABLE IF EXISTS " + tableName + ";";
+            connection.createStatement().executeUpdate(dropQuery);
 
-        jdbcTemplate.execute("DROP TABLE products_catalog__products IF EXISTS");
+            var createQuery = "CREATE TABLE " + tableName + " (" +
+                    "id VARCHAR(255) PRIMARY KEY NOT NULL," +
+                    "description TEXT," +
+                    "picture VARCHAR(255)," +
+                    "price DECIMAL(10, 2)" +
+                    ");";
+            connection.createStatement().executeUpdate(createQuery);
+        }
+        catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
-        jdbcTemplate.execute("CREATE TABLE `products_catalog__products` (" +
-                "id VARCHAR(255) PRIMARY KEY NOT NULL," +
-                "description TEXT," +
-                "picture VARCHAR(255)," +
-                "price DECIMAL(79.99)" +
-                ");");
+        this.productStorage = this.thereIsProductStorage(connection, tableName);
     }
 
     @Test
@@ -90,7 +98,8 @@ public class JDBCProductStorageTest {
         assertThat(product.getId()).isEqualTo(p.getId());
     }
 
-    private ProductStorage thereIsProductStorage(JdbcTemplate connection) {
-        return new JDBCProductStorage(connection);
+    private ProductStorage thereIsProductStorage(Connection connection, String tableName) {
+            return new MariaDBProductStorage(connection, tableName);
     }
+
 }

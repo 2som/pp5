@@ -3,6 +3,7 @@ package pl.mswierczynski.pp5.productcatalog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -20,6 +21,7 @@ public class JDBCProductStorage implements ProductStorage {
     public void save(Product newProduct) {
         var query = "INSERT INTO `products_catalog__products` (`id`, `description`, `picture`, `price`) values" +
                 "(?, ?, ? ,?);";
+
         jdbcTemplate.update(query, newProduct.getId(), newProduct.getDescription(), newProduct.getPicture(), newProduct.getPrice());
     }
 

@@ -2,30 +2,31 @@ package pl.mswierczynski.pp5.productcatalog;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.math.BigDecimal;
+
 
 @Configuration
 public class ProductCatalogConfiguration {
 
+    @Bean
     public ProductCatalogFacade productCatalogFacade() {
-        return new ProductCatalogFacade(new HashMapProductStorage());
+        return new ProductCatalogFacade(mariaDBProductStorage());
     }
 
     @Bean
-    public ProductStorage productStorage() {
-        return null;
+    public ProductStorage mariaDBProductStorage() {
+        return new MariaDBProductStorage(DBConnector.connect(), "product_catalog__products");
     }
 
-    @Bean
     public ProductCatalogFacade fixturesAwareProductCatalogFacade() {
-        ProductCatalogFacade productCatalogFacade = new ProductCatalogFacade(new HashMapProductStorage());
+        ProductCatalogFacade productCatalogFacade = new ProductCatalogFacade(new JDBCProductStorage(new JdbcTemplate()));
 
-        String p1 = productCatalogFacade.createProduct();
-        productCatalogFacade.applyPrice(p1, BigDecimal.TEN);
-        productCatalogFacade.updateProductDetails(p1, "test desc", "img.jpeg");
+        Product p1 = productCatalogFacade.createProduct("test", "test.jpeg", BigDecimal.valueOf(22));
 
         return productCatalogFacade;
     }
+
 }
 

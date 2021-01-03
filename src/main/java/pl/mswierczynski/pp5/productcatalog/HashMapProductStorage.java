@@ -3,6 +3,7 @@ package pl.mswierczynski.pp5.productcatalog;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -31,4 +32,15 @@ public class HashMapProductStorage implements ProductStorage {
                 .filter(product -> product.getPrice() != null)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Product update(Product p) {
+        return null;
+    }
+
+    @Override
+    public void delete(String productId) {
+        products.remove(productId);
+    }
+
 }

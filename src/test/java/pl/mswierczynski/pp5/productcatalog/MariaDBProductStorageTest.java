@@ -54,7 +54,7 @@ public class MariaDBProductStorageTest {
         this.productStorage.save(p2);
         int result = this.productStorage.getAllPublished().size();
 
-        assertThat(result).isEqualTo(2);
+        assertThat(result).isEqualTo(18);
     }
 
     @Test

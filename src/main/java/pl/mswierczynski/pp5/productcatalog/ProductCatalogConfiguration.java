@@ -21,7 +21,7 @@ public class ProductCatalogConfiguration {
     }
 
     public ProductCatalogFacade fixturesAwareProductCatalogFacade() {
-        ProductCatalogFacade productCatalogFacade = new ProductCatalogFacade(new JDBCProductStorage(new JdbcTemplate()));
+        ProductCatalogFacade productCatalogFacade = new ProductCatalogFacade(new HashMapProductStorage());
 
         Product p1 = productCatalogFacade.createProduct("test", "test.jpeg", BigDecimal.valueOf(22));
 

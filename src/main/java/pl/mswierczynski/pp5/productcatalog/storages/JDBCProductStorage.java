@@ -1,9 +1,9 @@
-package pl.mswierczynski.pp5.productcatalog;
+package pl.mswierczynski.pp5.productcatalog.storages;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.productcatalog.ProductStorage;
 
-import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

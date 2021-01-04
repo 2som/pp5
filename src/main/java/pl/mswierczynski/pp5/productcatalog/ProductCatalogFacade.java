@@ -1,5 +1,8 @@
 package pl.mswierczynski.pp5.productcatalog;
 
+import pl.mswierczynski.pp5.productcatalog.exceptions.ProductNotFoundException;
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;

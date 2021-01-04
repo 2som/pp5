@@ -2,6 +2,7 @@ package pl.mswierczynski.pp5.productcatalog;
 
 import org.junit.Assert;
 import org.junit.Test;
+import pl.mswierczynski.pp5.productcatalog.models.Product;
 
 import java.math.BigDecimal;
 

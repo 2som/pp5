@@ -1,7 +1,9 @@
-package pl.mswierczynski.pp5.productcatalog;
+package pl.mswierczynski.pp5.productcatalog.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.productcatalog.ProductCatalogFacade;
 
 import java.math.BigDecimal;
 import java.util.List;

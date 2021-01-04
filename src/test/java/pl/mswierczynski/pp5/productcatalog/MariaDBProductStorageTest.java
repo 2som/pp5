@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.productcatalog.storages.MariaDBProductStorage;
 
 import java.math.BigDecimal;
 import java.sql.Connection;

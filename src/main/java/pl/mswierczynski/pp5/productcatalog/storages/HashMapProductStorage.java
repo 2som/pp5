@@ -1,4 +1,7 @@
-package pl.mswierczynski.pp5.productcatalog;
+package pl.mswierczynski.pp5.productcatalog.storages;
+
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.productcatalog.ProductStorage;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package pl.mswierczynski.pp5.productcatalog;
+package pl.mswierczynski.pp5.productcatalog.models;
 import java.math.BigDecimal;
 import java.util.UUID;
 

@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.productcatalog.storages.JDBCProductStorage;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 

@@ -1,10 +1,13 @@
-package pl.mswierczynski.pp5.productcatalog;
+package pl.mswierczynski.pp5.productcatalog.storages;
+
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.productcatalog.ProductStorage;
 
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.*;
 
-public class MariaDBProductStorage implements ProductStorage{
+public class MariaDBProductStorage implements ProductStorage {
     private Connection connection;
     private String tableName;
     public MariaDBProductStorage(Connection connection, String tableName) {

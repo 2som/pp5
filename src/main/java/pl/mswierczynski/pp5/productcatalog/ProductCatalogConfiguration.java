@@ -2,7 +2,9 @@ package pl.mswierczynski.pp5.productcatalog;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.core.JdbcTemplate;
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.productcatalog.storages.HashMapProductStorage;
+import pl.mswierczynski.pp5.productcatalog.storages.MariaDBProductStorage;
 
 import java.math.BigDecimal;
 

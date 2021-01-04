@@ -1,8 +1,9 @@
 package pl.mswierczynski.pp5.productcatalog;
 
+import pl.mswierczynski.pp5.productcatalog.models.Product;
+
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public interface ProductStorage {
 

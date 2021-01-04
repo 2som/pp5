@@ -17,6 +17,7 @@ class ProductFormView extends Component{
     componentDidMount() {
         const { id } = this.props.match.params;
         if(id) {
+            this.setState({ operationType: "edit" });
             this.fetchProductDetails(id);
         }
     }
@@ -126,15 +127,17 @@ class ProductFormView extends Component{
 
     handlePatchRequest = () => {
         const { id } = this.props.match.params;
+        this.setState({ validatingProcess: true });
         
         api
-            .patch(`/products/${id}`, {
+            .patch(`/products/${id}/`, {
                 description: this.state.description,
                 price: this.state.price,
             })
-            .then(() => message.success("Product updated."))
             .then(() => this.props.history.push("/"))
+            .then(() => message.success("Product updated."))
             .catch(err => console.error(err))
+            .finally(() => this.setState({ validatingProcess: false }));
     }
 }
 

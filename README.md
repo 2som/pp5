@@ -1,4 +1,5 @@
 # Pracownia programowania 5 milestone
+![Java CI with Maven](https://github.com/2som/pp5/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)
 
 ## Set up
 
@@ -20,16 +21,16 @@ cd src/main/Client/
 npm i
 ```
 
-##Tests
+## Tests
 
 ```
 mvn test
 ```
 
-##API endopints
+## API endopints
 
 
-####GET
+#### GET
 ```
     http://localhost:8080/api/products/
 
@@ -37,17 +38,17 @@ mvn test
 
 ```
 
-####POST
+#### POST
 ```
     http://localhost:8080/api/products/
 ```
 
-####PATCH
+#### PATCH
 ```
     http://localhost:8080/api/products/:id/
 ```
 
-####DELETE
+#### DELETE
 ```
     http://localhost:8080/api/products/:id/
 ```

@@ -8,6 +8,5 @@ import pl.mswierczynski.pp5.productcatalog.DBConnector;
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-        DBConnector.connect();
     }
 }

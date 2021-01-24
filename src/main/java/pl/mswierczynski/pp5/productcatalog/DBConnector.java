@@ -10,8 +10,8 @@ import java.sql.SQLException;
 
 public class DBConnector {
     private static String url = "jdbc:mariadb://localhost:3306/pp5";
-    private static String user = "pp5_jdbc_user";
-    private static String password = "password";
+    private static String user = "root";
+    private static String password = "g8uv9t3rbK";
 
     public static Connection connect() {
 //        String url = getConfig("url");

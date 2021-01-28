@@ -84,25 +84,8 @@ public class BasketTest {
 
     }
 
-    @Test
-    public void itDenyToAddProductWith0Inventory() {
-        Basket basket = new Basket();
-        Product product1  = thereIsProduct("test");
-
-        Inventory inventory = thereIsInventory();
-        thereIsFollowingAmountOfProductAvailable(product1.getId(), 0);
-
-        assertThatThrownBy(() -> basket.add(product1, inventory))
-            .hasMessage("There is not enough products available");
-
-    }
-
     private Inventory thereIsInventory() {
         return new Inventory();
-    }
-
-    private void thereIsFollowingAmountOfProductAvailable(String id, int quantity) {
-
     }
 
     private Product thereIsProduct(String name) {

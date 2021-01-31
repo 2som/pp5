@@ -4,8 +4,14 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import ProductFormView from "./Views/ProductFormView";
-import ProductListView from "./Views/ProductListView";
+import { Layout, Menu } from 'antd';
+
+import AdminProductFormView from "./Views/AdminProductFormView";
+import AdminProductListView from "./Views/AdminProductListView";
+import ClientView from "./Views/ClientView";
+import CustomSider from "./Components/CustomSider";
+
+const { Header, Content, Footer } = Layout;
 
 export default class App extends Component {
     constructor() {
@@ -14,12 +20,23 @@ export default class App extends Component {
 
     render() {
         return (
-            <Router>
-                <Switch>
-                    <Route exact path={"/"} render={() => <ProductListView />}/>
-                    <Route path={"/add"} render={() => <ProductFormView />}/>
-                    <Route path={"/edit/:id"} render={() => <ProductFormView />} />
-                </Switch>
-            </Router>)
+        <Router>
+            <Layout style={{ minHeight: '100vh' }}>
+                <CustomSider />
+                <Layout>
+                    <Header style={{ padding: 0, backgroundColor: 'whitesmoke' }}/>
+                    <Content>
+                        <Switch>
+                            <Route exact path={"/products"} render={() => <AdminProductListView />}/>
+                            <Route path={"/products/add"} render={() => <AdminProductFormView />}/>
+                            <Route path={"/products/edit/:id"} render={() => <AdminProductFormView />}/>
+                            <Route path={"/"} component={ClientView}/>
+                        </Switch>
+                    </Content>
+                    <Footer style={{ textAlign: 'center' }}/>
+                </Layout>
+            </Layout>
+        </Router>
+        )
     }
 }

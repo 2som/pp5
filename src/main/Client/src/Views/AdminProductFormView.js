@@ -3,7 +3,7 @@ import { withRouter } from "react-router";
 import { Row, Col, Card, Input, Button, message } from "antd";
 import api from "../api";
 
-class ProductFormView extends Component{
+class AdminProductFormView extends Component{
     constructor(){
         super(); 
         this.state = {
@@ -12,6 +12,7 @@ class ProductFormView extends Component{
             validatingProcess: false,
             operationType: "add"
         }
+        this.REDIRECT_URI = "/products";
     }
 
     componentDidMount() {
@@ -80,7 +81,7 @@ class ProductFormView extends Component{
 
     handleCancel = () => {
         this.resetState()
-        this.props.history.push("/");
+        this.redirect();
     }
 
     resetState = () => {
@@ -120,7 +121,7 @@ class ProductFormView extends Component{
                 price: this.state.price,
                 picture: null,
             })
-            .then(() => this.props.history.push("/"))
+            .then(() => this.redirect())
             .catch(err => console.error(err))
             .finally(() => this.resetState());
     }
@@ -134,11 +135,15 @@ class ProductFormView extends Component{
                 description: this.state.description,
                 price: this.state.price,
             })
-            .then(() => this.props.history.push("/"))
+            .then(() => this.redirect())
             .then(() => message.success("Product updated."))
             .catch(err => console.error(err))
             .finally(() => this.setState({ validatingProcess: false }));
     }
+
+    redirect = () => {
+        this.props.history.push(this.REDIRECT_URI);
+    }
 }
 
-export default withRouter(ProductFormView);
+export default withRouter(AdminProductFormView);

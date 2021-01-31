@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import {ExclamationCircleOutlined} from "@ant-design/icons";
 import api from "../api";
-import { Table, Space, Spin, Col, Row, Modal, message, Input, Button } from "antd";
+import { Table, Space, Spin, Col, Row, Modal, message, Button } from "antd";
 import { withRouter } from "react-router";
 
 const { confirm } = Modal;
 
-class ProductListView extends Component{
+class AdminProductListView extends Component{
     constructor() {
         super();
         this.state = {
@@ -49,7 +49,7 @@ class ProductListView extends Component{
     }
 
     handleAddProduct = () => {
-        this.props.history.push("/add");
+        this.props.history.push("/products/add");
     }
 
     showDeleteConfirm = (id, callback) => {
@@ -89,7 +89,7 @@ class ProductListView extends Component{
             key: 'action',
             render: (record) => (
                 <Space size="middle">
-                    <a onClick={() => this.props.history.push(`edit/${record.id}`)}>Edit</a>
+                    <a onClick={() => this.props.history.push(`/products/edit/${record.id}`)}>Edit</a>
                     <a onClick={() => this.showDeleteConfirm(record.id, this.handleDeleteProduct)}>Delete</a>
                 </Space>
             ),
@@ -97,4 +97,4 @@ class ProductListView extends Component{
     ]
 }
 
-export default withRouter(ProductListView);
+export default withRouter(AdminProductListView);

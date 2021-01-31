@@ -1,0 +1,23 @@
+{
+  "name": "pp5",
+  "version": "1.0.0",
+  "description": "![Java CI with Maven](https://github.com/2som/pp5/workflows/Java%20CI%20with%20Maven/badge.svg?branch=master)",
+  "main": "gulp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2som/pp5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2som/pp5/issues"
+  },
+  "homepage": "https://github.com/2som/pp5#readme",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
+}

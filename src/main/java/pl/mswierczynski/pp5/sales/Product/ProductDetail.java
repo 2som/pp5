@@ -1,4 +1,4 @@
-package pl.mswierczynski.pp5.sales;
+package pl.mswierczynski.pp5.sales.Product;
 
 import java.math.BigDecimal;
 

@@ -2,6 +2,11 @@ package pl.mswierczynski.pp5.sales;
 
 import pl.mswierczynski.pp5.productcatalog.ProductCatalogFacade;
 import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.sales.Basket.Basket;
+import pl.mswierczynski.pp5.sales.Basket.InMemoryBasketStorage;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
+import pl.mswierczynski.pp5.sales.Offer.OfferChangeException;
+import pl.mswierczynski.pp5.sales.Offer.OfferMaker;
 
 public class SalesFacade {
     ProductCatalogFacade productCatalogFacade;

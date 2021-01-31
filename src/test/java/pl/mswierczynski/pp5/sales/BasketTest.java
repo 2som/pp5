@@ -2,6 +2,8 @@ package pl.mswierczynski.pp5.sales;
 
 import org.junit.Test;
 import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.sales.Basket.Basket;
+import pl.mswierczynski.pp5.sales.Basket.BasketLine;
 
 import java.util.UUID;
 

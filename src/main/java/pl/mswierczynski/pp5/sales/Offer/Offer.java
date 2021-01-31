@@ -1,4 +1,6 @@
-package pl.mswierczynski.pp5.sales;
+package pl.mswierczynski.pp5.sales.Offer;
+
+import pl.mswierczynski.pp5.sales.OrderLine;
 
 import java.math.BigDecimal;
 import java.util.Collections;

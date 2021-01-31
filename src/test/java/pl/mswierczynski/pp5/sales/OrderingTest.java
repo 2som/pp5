@@ -2,7 +2,7 @@ package pl.mswierczynski.pp5.sales;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.*;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
 
 
 public class OrderingTest extends SalesTestCase {

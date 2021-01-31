@@ -1,6 +1,7 @@
 package pl.mswierczynski.pp5.sales;
 
 import org.springframework.web.bind.annotation.*;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
 
 @RestController
 public class SalesController {

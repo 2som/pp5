@@ -1,4 +1,6 @@
-package pl.mswierczynski.pp5.sales;
+package pl.mswierczynski.pp5.sales.Basket;
+
+import pl.mswierczynski.pp5.sales.Basket.Basket;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

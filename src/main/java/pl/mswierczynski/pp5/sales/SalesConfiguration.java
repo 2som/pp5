@@ -3,6 +3,9 @@ package pl.mswierczynski.pp5.sales;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.mswierczynski.pp5.productcatalog.ProductCatalogFacade;
+import pl.mswierczynski.pp5.sales.Basket.InMemoryBasketStorage;
+import pl.mswierczynski.pp5.sales.Offer.OfferMaker;
+import pl.mswierczynski.pp5.sales.Product.ProductDetailsProvider;
 import pl.mswierczynski.pp5.sales.exceptions.ProductCatalogProductDetailsProvider;
 
 import java.util.UUID;

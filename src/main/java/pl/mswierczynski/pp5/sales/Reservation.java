@@ -1,5 +1,7 @@
 package pl.mswierczynski.pp5.sales;
 
+import pl.mswierczynski.pp5.sales.Offer.Offer;
+
 import java.util.UUID;
 
 public class Reservation {

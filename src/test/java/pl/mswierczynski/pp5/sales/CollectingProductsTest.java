@@ -2,11 +2,10 @@ package pl.mswierczynski.pp5.sales;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.mswierczynski.pp5.productcatalog.ProductCatalogConfiguration;
-import pl.mswierczynski.pp5.productcatalog.ProductCatalogFacade;
+import pl.mswierczynski.pp5.sales.Basket.Basket;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.*;
 

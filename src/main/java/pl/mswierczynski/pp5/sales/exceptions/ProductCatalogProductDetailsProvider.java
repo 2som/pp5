@@ -1,8 +1,8 @@
 package pl.mswierczynski.pp5.sales.exceptions;
 
 import pl.mswierczynski.pp5.productcatalog.ProductCatalogFacade;
-import pl.mswierczynski.pp5.sales.ProductDetail;
-import pl.mswierczynski.pp5.sales.ProductDetailsProvider;
+import pl.mswierczynski.pp5.sales.Product.ProductDetail;
+import pl.mswierczynski.pp5.sales.Product.ProductDetailsProvider;
 
 public class ProductCatalogProductDetailsProvider implements ProductDetailsProvider {
 

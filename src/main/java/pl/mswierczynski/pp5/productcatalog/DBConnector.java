@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class DBConnector {
     private static String url = "jdbc:mariadb://localhost:3306/pp5";
     private static String user = "root";
-    private static String password = "g8uv9t3rbK";
+    private static String password = "";
 
     public static Connection connect() {
 //        String url = getConfig("url");

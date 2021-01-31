@@ -41,7 +41,15 @@ public class SalesFacade {
         return offerMaker.calculateOffer(basket.getBasketItems());
     }
 
-    public String acceptOffer(Offer offer) {
-        return null;
+    public String acceptOffer(Offer offer, ClientData clientData) {
+        Basket basket = basketStorage.loadForCustomer(getCurrentCustomerId());
+        Offer currentOffer = offerMaker.calculateOffer(basket.getBasketItems());
+
+        if (!offer.isEqual(currentOffer)) {
+            throw new OfferChangeException();
+        }
+
+        Reservation reservation = Reservation.of(currentOffer, clientData);
+        return reservation.getId();
     }
 }

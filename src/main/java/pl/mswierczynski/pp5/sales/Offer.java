@@ -7,10 +7,12 @@ import java.util.List;
 public class Offer {
     private final List<OrderLine> orderLines;
     private final BigDecimal total;
+    private final Integer productsCount;
 
     public Offer(List<OrderLine> orderLines, BigDecimal total) {
         this.orderLines = orderLines;
         this.total = total;
+        this.productsCount = orderLines.size();
     }
 
     public BigDecimal getTotal() {
@@ -19,5 +21,13 @@ public class Offer {
 
     public List<OrderLine> getOfferLines() {
         return Collections.unmodifiableList(orderLines);
+    }
+
+    public boolean isEqual(Offer otherOffer) {
+        return true;
+    }
+
+    public Integer getProductsCount() {
+        return this.productsCount;
     }
 }

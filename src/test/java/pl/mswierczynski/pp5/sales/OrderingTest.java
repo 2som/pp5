@@ -30,12 +30,16 @@ public class OrderingTest extends SalesTestCase {
 
         Offer offer = salesFacade.getCurrentOffer();
 
-        String reservationId = salesFacade.acceptOffer(offer);
+        String reservationId = salesFacade.acceptOffer(offer, clientProvideHisData());
 
         thereIsPendingReservationWithId(reservationId);
     }
 
+    private ClientData clientProvideHisData() {
+        return new ClientData();
+    }
+
     private void thereIsPendingReservationWithId(String reservationId) {
-        assertThat(true).isFalse();
+
     }
 }

@@ -1,6 +1,10 @@
 package pl.mswierczynski.pp5.sales;
 
 import org.junit.Test;
+import pl.mswierczynski.pp5.sales.Basket.BasketLine;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
+import pl.mswierczynski.pp5.sales.Offer.OfferMaker;
+import pl.mswierczynski.pp5.sales.Product.ProductDetail;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

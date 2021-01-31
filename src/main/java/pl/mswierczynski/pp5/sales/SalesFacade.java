@@ -2,6 +2,11 @@ package pl.mswierczynski.pp5.sales;
 
 import pl.mswierczynski.pp5.productcatalog.ProductCatalogFacade;
 import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.sales.Basket.Basket;
+import pl.mswierczynski.pp5.sales.Basket.InMemoryBasketStorage;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
+import pl.mswierczynski.pp5.sales.Offer.OfferChangeException;
+import pl.mswierczynski.pp5.sales.Offer.OfferMaker;
 
 public class SalesFacade {
     ProductCatalogFacade productCatalogFacade;
@@ -41,7 +46,15 @@ public class SalesFacade {
         return offerMaker.calculateOffer(basket.getBasketItems());
     }
 
-    public String acceptOffer(Offer offer) {
-        return null;
+    public String acceptOffer(Offer offer, ClientData clientData) {
+        Basket basket = basketStorage.loadForCustomer(getCurrentCustomerId());
+        Offer currentOffer = offerMaker.calculateOffer(basket.getBasketItems());
+
+        if (!offer.isEqual(currentOffer)) {
+            throw new OfferChangeException();
+        }
+
+        Reservation reservation = Reservation.of(currentOffer, clientData);
+        return reservation.getId();
     }
 }

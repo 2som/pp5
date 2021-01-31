@@ -1,9 +1,9 @@
-package pl.mswierczynski.pp5.sales;
+package pl.mswierczynski.pp5.sales.Basket;
 
 import pl.mswierczynski.pp5.productcatalog.models.Product;
+import pl.mswierczynski.pp5.sales.Inventory;
 import pl.mswierczynski.pp5.sales.exceptions.NotEnoughProductsException;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

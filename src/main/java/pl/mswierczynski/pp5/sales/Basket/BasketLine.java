@@ -1,4 +1,4 @@
-package pl.mswierczynski.pp5.sales;
+package pl.mswierczynski.pp5.sales.Basket;
 
 public class BasketLine {
     private final String productId;

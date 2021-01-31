@@ -1,4 +1,10 @@
-package pl.mswierczynski.pp5.sales;
+package pl.mswierczynski.pp5.sales.Offer;
+
+import pl.mswierczynski.pp5.sales.Basket.BasketLine;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
+import pl.mswierczynski.pp5.sales.OrderLine;
+import pl.mswierczynski.pp5.sales.Product.ProductDetail;
+import pl.mswierczynski.pp5.sales.Product.ProductDetailsProvider;
 
 import java.math.BigDecimal;
 import java.util.List;

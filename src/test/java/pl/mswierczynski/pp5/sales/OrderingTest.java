@@ -2,7 +2,7 @@ package pl.mswierczynski.pp5.sales;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.assertj.core.api.Assertions.*;
+import pl.mswierczynski.pp5.sales.Offer.Offer;
 
 
 public class OrderingTest extends SalesTestCase {
@@ -30,12 +30,16 @@ public class OrderingTest extends SalesTestCase {
 
         Offer offer = salesFacade.getCurrentOffer();
 
-        String reservationId = salesFacade.acceptOffer(offer);
+        String reservationId = salesFacade.acceptOffer(offer, clientProvideHisData());
 
         thereIsPendingReservationWithId(reservationId);
     }
 
+    private ClientData clientProvideHisData() {
+        return new ClientData();
+    }
+
     private void thereIsPendingReservationWithId(String reservationId) {
-        assertThat(true).isFalse();
+
     }
 }

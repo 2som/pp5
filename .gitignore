@@ -5,3 +5,5 @@ dbConfig.json
 
 node_modules
 build
+manifest.txt
+*.jar

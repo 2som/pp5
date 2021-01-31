@@ -18,7 +18,7 @@ public class SalesConfiguration {
         return new SalesFacade(
             productCatalogFacade,
             new InMemoryBasketStorage(),
-            () -> UUID.randomUUID().toString(),
+            () -> "d5d30e51-9944-4a2f-b887-a3cfd71cdfd7",
             thereIsInventory(),
             offerMaker
         );

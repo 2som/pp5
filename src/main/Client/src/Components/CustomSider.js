@@ -11,7 +11,7 @@ const { Sider } = Layout;
 
 const CustomSider = () => (
   <Sider style={{ paddingTop: '5vh' }} collapsed={false}>
-    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+    <Menu theme="dark" defaultSelectedKeys={['2']} mode="inline">
       <Menu.Item key="1" icon={<UnlockOutlined /> }>
         <Link to="/products">Admin Panel</Link>
       </Menu.Item>

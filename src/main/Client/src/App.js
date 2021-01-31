@@ -4,7 +4,7 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 
 import AdminProductFormView from "./Views/AdminProductFormView";
 import AdminProductListView from "./Views/AdminProductListView";

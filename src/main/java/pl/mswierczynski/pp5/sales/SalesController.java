@@ -3,6 +3,7 @@ package pl.mswierczynski.pp5.sales;
 import org.springframework.web.bind.annotation.*;
 import pl.mswierczynski.pp5.sales.Offer.Offer;
 
+@CrossOrigin(origins = { "http://localhost:3000", "http://localhost:8081", "http://localhost:8082" })
 @RestController
 public class SalesController {
     private final SalesFacade sales;
@@ -17,16 +18,17 @@ public class SalesController {
     }
 
     @PostMapping("/api/basket/add/{productId}")
-    public void addToBasket(@PathVariable String productId) {
+    public void addToBasket(@PathVariable final String productId) {
+        System.out.println(productId);
         sales.addProduct(productId);
     }
 
     @PostMapping("/api/basket/delete/{productId}")
-    public void deleteFromBasket(@PathVariable String productId) {
+    public void deleteFromBasket(@PathVariable final String productId) {
         sales.deleteProduct(productId);
     }
 
-    @PostMapping("/api/basker/accept-offer")
+    @PostMapping("/api/basker/accept-offer/")
     public void acceptOffer() {
     }
 

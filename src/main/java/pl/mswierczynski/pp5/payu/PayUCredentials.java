@@ -1,13 +1,15 @@
 package pl.mswierczynski.pp5.payu;
+import lombok.Getter;
 
-public class PayCredentials {
+@Getter
+public class PayUCredentials {
     private final String posId;
     private final String secondKey;
     private final String clientId;
     private final String clientSecret;
     private final String baseUrl;
 
-    public PayCredentials(String posId, String secondKey, String clientId, String clientSecret, String baseUrl) {
+    public PayUCredentials(String posId, String secondKey, String clientId, String clientSecret, String baseUrl) {
         this.posId = posId;
         this.secondKey = secondKey;
         this.clientId = clientId;
@@ -15,8 +17,8 @@ public class PayCredentials {
         this.baseUrl = baseUrl;
     }
 
-    public static PayCredentials sandbox() {
-        return new PayCredentials(
+    public static PayUCredentials sandbox() {
+        return new PayUCredentials(
             "300746",
             "b6ca15b0d1020e8094d9b5f8d163db54",
             "300746",
@@ -24,8 +26,8 @@ public class PayCredentials {
             "https://secure.snd.payu.com");
     }
 
-    public static PayCredentials production(String posId, String secondKey, String clientId, String clientSecret, String baseUrl) {
-        return new PayCredentials(
+    public static PayUCredentials production(String posId, String secondKey, String clientId, String clientSecret, String baseUrl) {
+        return new PayUCredentials(
             posId,
             secondKey,
             clientId,

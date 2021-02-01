@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 import pl.mswierczynski.pp5.sales.Offer.Offer;
 
+import static org.assertj.core.api.Assertions.*;
+
 
 public class OrderingTest extends SalesTestCase {
     @Before
@@ -14,6 +16,7 @@ public class OrderingTest extends SalesTestCase {
         inventory = getInventory();
         currentCustomerContext = () -> customerId;
         offerMaker = thereIsOfferMaker(productCatalog);
+        paymentGateway = thereIsPaymentGateway();
     }
 
     @Test
@@ -30,9 +33,11 @@ public class OrderingTest extends SalesTestCase {
 
         Offer offer = salesFacade.getCurrentOffer();
 
-        String reservationId = salesFacade.acceptOffer(offer, clientProvideHisData());
+        ReservationPaymentDetails paymentDetails = salesFacade.acceptOffer(offer, clientProvideHisData());
 
-        thereIsPendingReservationWithId(reservationId);
+        thereIsPendingReservationWithId(paymentDetails.getReservationId());
+        thereIsPaymentRegisteredForReservation(paymentDetails.getReservationId());
+        assertThat(paymentDetails.getPaymentUrl()).isNotNull();
     }
 
     private ClientData clientProvideHisData() {
@@ -40,6 +45,10 @@ public class OrderingTest extends SalesTestCase {
     }
 
     private void thereIsPendingReservationWithId(String reservationId) {
+        assertThat(false).isFalse();
+    }
+
+    private void thereIsPaymentRegisteredForReservation(String reservationId) {
 
     }
 }

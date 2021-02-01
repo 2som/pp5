@@ -13,14 +13,16 @@ public class SalesFacade {
     InMemoryBasketStorage basketStorage;
     CurrentCustomerContext currentCustomerContext;
     Inventory inventory;
-    private OfferMaker offerMaker;
+    OfferMaker offerMaker;
+    PaymentGateway paymentGateway;
 
-    public SalesFacade(ProductCatalogFacade productCatalogFacade, InMemoryBasketStorage basketStorage, CurrentCustomerContext currentCustomerContext, Inventory inventory, OfferMaker offerMaker) {
+    public SalesFacade(ProductCatalogFacade productCatalogFacade, InMemoryBasketStorage basketStorage, CurrentCustomerContext currentCustomerContext, Inventory inventory, OfferMaker offerMaker, PaymentGateway paymentGateway) {
         this.productCatalogFacade = productCatalogFacade;
         this.basketStorage = basketStorage;
         this.currentCustomerContext = currentCustomerContext;
         this.inventory = inventory;
         this.offerMaker = offerMaker;
+        this.paymentGateway = paymentGateway;
     }
 
     public void addProduct(String productId) {
@@ -46,7 +48,7 @@ public class SalesFacade {
         return offerMaker.calculateOffer(basket.getBasketItems());
     }
 
-    public String acceptOffer(Offer offer, ClientData clientData) {
+    public ReservationPaymentDetails acceptOffer(Offer offer, ClientData clientData) {
         Basket basket = basketStorage.loadForCustomer(getCurrentCustomerId());
         Offer currentOffer = offerMaker.calculateOffer(basket.getBasketItems());
 
@@ -55,6 +57,9 @@ public class SalesFacade {
         }
 
         Reservation reservation = Reservation.of(currentOffer, clientData);
-        return reservation.getId();
+
+        ReservationPaymentDetails reservationPaymentDetails = paymentGateway.register(reservation);
+
+        return reservationPaymentDetails;
     }
 }

@@ -17,6 +17,7 @@ public class SalesTestCase {
     protected CurrentCustomerContext currentCustomerContext;
     ProductCatalogFacade productCatalog;
     protected OfferMaker offerMaker;
+    protected PaymentGateway paymentGateway;
 
     protected Inventory getInventory() {
         return new Inventory();
@@ -47,7 +48,8 @@ public class SalesTestCase {
             basketStorage,
             currentCustomerContext,
             inventory,
-            offerMaker
+            offerMaker,
+            paymentGateway
         );
     }
 
@@ -55,6 +57,10 @@ public class SalesTestCase {
         return productCatalog
             .createProduct("test", "test.jpg", BigDecimal.TEN)
             .getId();
+    }
+
+    protected PaymentGateway thereIsPaymentGateway() {
+        return new DummyPaymentGateway();
     }
 
     protected String thereIsCustomerWhoIsDoingSomeShoping() {

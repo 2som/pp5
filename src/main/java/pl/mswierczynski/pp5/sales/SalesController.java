@@ -32,4 +32,11 @@ public class SalesController {
     public void acceptOffer() {
     }
 
+    @PostMapping("/api/payment/status")
+    public void updatePaymentStatus(@RequestHeader("OpenPayu-Signature") String signatureHeader, @RequestBody String body) {
+        PaymentUpdateStatusRequest paymentUpdateStatusRequest = PaymentUpdateStatusRequest.of(signatureHeader, body);
+
+        sales.handlePaymentStatusChanged();
+    }
+
 }

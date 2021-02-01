@@ -62,4 +62,7 @@ public class SalesFacade {
 
         return reservationPaymentDetails;
     }
+
+    public void handlePaymentStatusChanged() {
+    }
 }
